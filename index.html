@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: url('https://picsum.photos/1600/400?mountain') no-repeat center/cover;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    section {
+      width: 100%;
+      padding: 40px 30px;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    section h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    section p {
+      text-align: center;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .skill {
+      background: #007bff;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    section ul li {
+      margin-bottom: 10px;
+    }
+
+    section ul li a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .kontak-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .kontak-form {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .kontak-form input,
+    .kontak-form textarea {
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .kontak-form button {
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .kontak-form button:hover {
+      background: #0056b3;
+    }
+
+    .kontak-info {
+      flex: 1;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 10px;
+    }
+
+    .kontak-info div {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .kontak-info div span {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 30px;
+      background: #333;
+      color: white;
+    }
+
+    .proyek-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .proyek-list a {
+      text-decoration: none;
+    }
+
+    .proyek-list img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .proyek-list img:hover {
+      transform: scale(1.05);
+    }
+
+    .proyek-list p {
+      margin-top: 5px;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 10px 0 0;
+      }
+
+      .skills {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 30px 15px;
+      }
+
+      .kontak-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Portofolio</h1>
+    <nav>
+      <a href="#tentang">Tentang</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <img src="aku.jpg" alt="Foto Profil" class="profile-img">
+      <h2>Hi I'm M.ALif Taufiqi</h2>
+      <p> Bongkar pc dan pengusaha sukses </p>
+      <a href="#proyek" class="btn">Lihat Proyek Saya</a>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <h3>Tentang Saya</h3>
+    <p>
+      Saya adalah seorang pelajar dari SMKN 1 SAYUNG yang berfokus pada PPLG.<br>
+      Dengan pengalaman di setiap pembelajaran, saya berkomitmen untuk terus berkembang dan memberikan hasil terbaik.<br>
+      Visi saya adalah menjadi pribadi yang bermanfaat dan memberi dampak positif.<br>
+      Saya juga seorang anak kedua dari tiga bersaudara yang dipercaya orang tua,<br>
+      bukan hanya berharap sukses dunia tapi juga akhirat.<br>
+      Impian terbesar saya yang sekarang belum bisa adalah<br>
+      mengangkat derajat orang tua saya dan keluarga saya.<br>
+      Saya percaya dengan kerja keras, doa, dan usaha yang konsisten,<br> saya bisa mencapai semua itu.
+    </p>
+    <br>
+    <h3>INILAH SAYA</h3>
+    <p>
+        <strong>Nama:</strong> M.Alif.Taufiqi<br>
+        <strong>Kelas:</strong> XI PPLG 2<br>
+        <strong>NIS:</strong> 2433888<br>
+        <strong>Hobi:</strong> futsal<br>
+        <strong>Alamat:</strong> Desa Sayung RT01 RW01, Kec Sayung, Kab Demak<br>
+    </p>
+    <br>
+    
+    <h3>Keahlian</h3>
+    <div class="skills">
+      <span class="skill">HTML & CSS</span>
+      <span class="skill">futsal</span>
+      <span class="skill">UI/UX Design</span>
+      <span class="skill">Responsive Design</span>
+      <span class="skill">Git & Github</span>
+    </div>
+  </section>
+
+  <section id="proyek">
+    <h3>Proyek</h3>
+    <div class="proyek-list">
+      <a href="proyek 1.html" target="_blank">
+        <img src="1.png" alt="Proyek 1">
+        <p>Web tentang Alam(gunung)</p>
+      </a>
+      <a href="proyek 2.html" target="_blank">
+        <img src="2.png" alt="Proyek 2">
+        <p>Web tentang lalu lintas</p>
+      </a>
+      <a href="proyek 3.html" target="_blank">
+        <img src="3.png" alt="Proyek 3">
+        <p>Portofolio lama</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <h3>Kontak</h3>
+    <p>Silakan hubungi saya melalui formulir atau media sosial di samping.</p>
+
+    <div class="kontak-container">
+      <form class="kontak-form" action="#" method="post">
+        <input type="text" name="nama" placeholder="Nama Anda" required>
+        <input type="email" name="email" placeholder="Email Anda" required>
+        <textarea name="pesan" rows="5" placeholder="Tulis pesan Anda..." required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+
+      <div class="kontak-info">
+        <div><span>📱</span> 0838****3665</div>
+        <div><span>📧</span> liftauqii@email.com</div>
+        <div><span>📷</span> <a href="https://www.instagram.com/liftaufiqiiii?igsh=MXZmcmhrYXM3bGsxaA==" target="_blank">@liftauqii</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 M.Alif Taufiqi - XI PPLG 2</p>
+  </footer>
+
+</body>
+</html>
